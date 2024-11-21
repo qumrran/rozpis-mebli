@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { calculateFormats } from "../utils/calculateFormats";
+import { PiArrowsCounterClockwiseBold } from "react-icons/pi";
 
 const DimensionsForm: React.FC = () => {
   const { dispatch } = useAppContext();
@@ -111,9 +112,10 @@ const DimensionsForm: React.FC = () => {
 
       <button
         type="submit"
-        className="bg-customBg border border-inherit hover:bg-gray-700 text-white py-2 px-4 font-light"
+        className="btn-custom flex items-center justify-center space-x-2"
       >
-        Oblicz formatki
+        <span>Oblicz formatki</span>
+        <PiArrowsCounterClockwiseBold className="text-xl" />
       </button>
     </form>
   );
