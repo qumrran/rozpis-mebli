@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         mono: ["Geist Mono", "monospace"], 
       },
+      screens: {
+        "max-xs": { max: "430px" }, 
+      },
     },
   },
   plugins: [],
