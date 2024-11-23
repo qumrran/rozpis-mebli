@@ -4,6 +4,7 @@ import DimensionsForm from "./components/DimensionsForm";
 import ResultsTable from "./components/ResultsTable";
 import { AppProvider } from "./context/AppContext";
 import Footer from "./components/Footer";
+import WardrobeVisualization from "./components/WardrobeVisualization";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <main className="max-w-3xl mx-auto">
           <DimensionsForm />
           <ResultsTable />
+          <WardrobeVisualization />
         </main>
        <Footer/>
       </div>
