@@ -5,7 +5,6 @@ const WardrobeVisualization: React.FC = () => {
   const { state } = useAppContext();
   const { formats } = state;
 
-  
   const [cabinetFormat, shelfFormat, partitionFormat, bottomTopFormat] = [
     "Bok szafy",
     "Półka",
@@ -13,44 +12,33 @@ const WardrobeVisualization: React.FC = () => {
     "Wieniec dolny/górny",
   ].map((type) => formats.find((format) => format.type === type));
 
- 
   const cabinetHeight = cabinetFormat?.height || 2000;
-  const cabinetWidth = cabinetFormat?.width || 600;
   const plateThickness = cabinetFormat?.plateThickness || 18;
   const bottomTopWidth = bottomTopFormat?.width || 596;
   const totalWidth = bottomTopWidth + 2 * plateThickness;
 
-  
   const shelvesCount = shelfFormat?.count || 6;
   const partitionsCount = partitionFormat?.count || 0;
 
   
+  const horizontalPadding = Math.max(64, cabinetHeight * 0.1);
   const padding = 64;
+
   const partitionWidth = totalWidth / (partitionsCount + 1);
   const shelfHeight = cabinetHeight / (shelvesCount + 1);
 
-  
-  console.log({
-    cabinetHeight,
-    cabinetWidth,
-    bottomTopWidth,
-    totalWidth,
-    shelvesCount,
-    partitionsCount,
-    partitionWidth,
-    shelfHeight,
-  });
+  const dynamicStrokeWidth = Math.max(1, Math.min(totalWidth, cabinetHeight) / 200);
 
   return (
     <div className="bg-black text-white p-4 mb-6 mx-auto max-w-3xl border border-current">
       <h2 className="text-lg mb-4">Wizualizacja szafy</h2>
       <svg
-        viewBox={`0 -${padding} ${totalWidth} ${cabinetHeight + 2 * padding}`}
+        viewBox={`-${horizontalPadding} -${padding} ${totalWidth + 2 * horizontalPadding} ${cabinetHeight + 2 * padding}`}
         width="100%"
         height="400px"
         className="bg-customBg border border-white"
       >
-      
+       
         <rect
           x="0"
           y="0"
@@ -58,11 +46,11 @@ const WardrobeVisualization: React.FC = () => {
           height={cabinetHeight}
           fill="none"
           stroke="currentColor"
-          strokeWidth="4"
+          strokeWidth={dynamicStrokeWidth}
           className="text-lime-400"
         />
 
-     
+        
         {[...Array(partitionsCount)].map((_, i) => (
           <line
             key={i}
@@ -71,7 +59,7 @@ const WardrobeVisualization: React.FC = () => {
             x2={(i + 1) * partitionWidth}
             y2={cabinetHeight}
             stroke="currentColor"
-            strokeWidth="4"
+            strokeWidth={dynamicStrokeWidth}
             className="text-lime-400"
           />
         ))}
@@ -85,7 +73,7 @@ const WardrobeVisualization: React.FC = () => {
             x2={totalWidth}
             y2={(i + 1) * shelfHeight}
             stroke="currentColor"
-            strokeWidth="4"
+            strokeWidth={dynamicStrokeWidth}
             className="text-lime-400"
           />
         ))}
