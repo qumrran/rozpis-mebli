@@ -13,8 +13,8 @@ const App: React.FC = () => {
       <Header />
         <main className="max-w-3xl mx-auto">
           <DimensionsForm />
-          <ResultsTable />
           <WardrobeVisualization />
+          <ResultsTable />
         </main>
        <Footer/>
       </div>

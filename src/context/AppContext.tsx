@@ -4,6 +4,7 @@ type Format = {
   width: number;
   height: number;
   count: number;
+  plateThickness: number;
   type: string;
 };
 

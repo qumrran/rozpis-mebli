@@ -5,28 +5,47 @@ const WardrobeVisualization: React.FC = () => {
   const { state } = useAppContext();
   const { formats } = state;
 
-  const cabinetFormat = formats.find((format) => format.type === "Bok szafy");
-  const shelfFormat = formats.find((format) => format.type === "Półka");
-  const partitionFormat = formats.find((format) => format.type === "Przegroda");
+  
+  const [cabinetFormat, shelfFormat, partitionFormat, bottomTopFormat] = [
+    "Bok szafy",
+    "Półka",
+    "Przegroda",
+    "Wieniec dolny/górny",
+  ].map((type) => formats.find((format) => format.type === type));
+
+ 
+  const cabinetHeight = cabinetFormat?.height || 2000;
+  const cabinetWidth = cabinetFormat?.width || 600;
+  const plateThickness = cabinetFormat?.plateThickness || 18;
+  const bottomTopWidth = bottomTopFormat?.width || 596;
+  const totalWidth = bottomTopWidth + 2 * plateThickness;
 
   
-  const cabinetHeight = cabinetFormat?.height || 2000; 
-  const cabinetDepth = cabinetFormat?.width || 600; 
   const shelvesCount = shelfFormat?.count || 6;
   const partitionsCount = partitionFormat?.count || 0;
 
- 
+  
   const padding = 64;
-
- 
-  const partitionWidth = cabinetDepth / (partitionsCount + 1);
+  const partitionWidth = totalWidth / (partitionsCount + 1);
   const shelfHeight = cabinetHeight / (shelvesCount + 1);
+
+  
+  console.log({
+    cabinetHeight,
+    cabinetWidth,
+    bottomTopWidth,
+    totalWidth,
+    shelvesCount,
+    partitionsCount,
+    partitionWidth,
+    shelfHeight,
+  });
 
   return (
     <div className="bg-black text-white p-4 mb-6 mx-auto max-w-3xl border border-current">
       <h2 className="text-lg mb-4">Wizualizacja szafy</h2>
       <svg
-        viewBox={`0 -${padding} ${cabinetDepth} ${cabinetHeight + 2 * padding}`}
+        viewBox={`0 -${padding} ${totalWidth} ${cabinetHeight + 2 * padding}`}
         width="100%"
         height="400px"
         className="bg-customBg border border-white"
@@ -35,7 +54,7 @@ const WardrobeVisualization: React.FC = () => {
         <rect
           x="0"
           y="0"
-          width={cabinetDepth}
+          width={totalWidth}
           height={cabinetHeight}
           fill="none"
           stroke="currentColor"
@@ -43,9 +62,10 @@ const WardrobeVisualization: React.FC = () => {
           className="text-lime-400"
         />
 
+     
         {[...Array(partitionsCount)].map((_, i) => (
           <line
-            key={`partition-${i}`}
+            key={i}
             x1={(i + 1) * partitionWidth}
             y1="0"
             x2={(i + 1) * partitionWidth}
@@ -59,10 +79,10 @@ const WardrobeVisualization: React.FC = () => {
        
         {[...Array(shelvesCount)].map((_, i) => (
           <line
-            key={`shelf-${i}`}
+            key={i}
             x1="0"
             y1={(i + 1) * shelfHeight}
-            x2={cabinetDepth}
+            x2={totalWidth}
             y2={(i + 1) * shelfHeight}
             stroke="currentColor"
             strokeWidth="4"

@@ -31,6 +31,7 @@ export function calculateFormats({
 		width: depth,
 		height,
 		count: 2,
+		plateThickness,
 	});
 
 	formats.push({
@@ -38,6 +39,7 @@ export function calculateFormats({
 		width: cabinetWidth,
 		height: depth,
 		count: 2,
+		plateThickness,
 	});
 
 	if (shelvesCount > 0) {
@@ -46,6 +48,7 @@ export function calculateFormats({
 			width: calculateShelfWidth(),
 			height: depth - 3,
 			count: shelvesCount,
+			plateThickness,
 		});
 	}
 
@@ -56,6 +59,7 @@ export function calculateFormats({
 			width: depth,
 			height: partitionHeight,
 			count: partitionsCount,
+			plateThickness,
 		});
 	}
 
