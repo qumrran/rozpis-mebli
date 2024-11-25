@@ -6,22 +6,30 @@ import { PiArrowsCounterClockwiseBold } from "react-icons/pi";
 const DimensionsForm: React.FC = () => {
   const { dispatch } = useAppContext();
   const [formData, setFormData] = useState({
-    width: 600,
-    height: 2000,
-    depth: 600,
-    shelvesCount: 6,
-    partitionsCount: 0,
-    plateThickness: 18,
+    width: "600",
+    height: "2000",
+    depth: "600",
+    shelvesCount: "6",
+    partitionsCount: "0",
+    plateThickness: "18",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: Number(value) });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formats = calculateFormats(formData);
+    const numericFormData = {
+      width: Number(formData.width),
+      height: Number(formData.height),
+      depth: Number(formData.depth),
+      shelvesCount: Number(formData.shelvesCount),
+      partitionsCount: Number(formData.partitionsCount),
+      plateThickness: Number(formData.plateThickness),
+    };
+    const formats = calculateFormats(numericFormData);
     dispatch({ type: "SET_FORMATS", payload: formats });
   };
 
@@ -105,8 +113,8 @@ const DimensionsForm: React.FC = () => {
           onChange={handleChange}
           className="input-base"
         >
-          <option value={16}>16 mm</option>
-          <option value={18}>18 mm</option>
+          <option value="16">16 mm</option>
+          <option value="18">18 mm</option>
         </select>
       </label>
 
