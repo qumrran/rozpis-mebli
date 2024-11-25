@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useAppContext } from "../context/AppContext";
-import { calculateFormats } from "../utils/calculateFormats";
+import { useAppContext } from "../../context/AppContext";
+import { calculateFormats } from "../../utils/calculateFormats";
 import { PiArrowsCounterClockwiseBold } from "react-icons/pi";
+import { DimensionsFormData, NumericDimensionsFormData } from "./DimensionsForm.types";
 
 const DimensionsForm: React.FC = () => {
   const { dispatch } = useAppContext();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<DimensionsFormData>({
     width: "600",
     height: "2000",
     depth: "600",
@@ -21,7 +22,7 @@ const DimensionsForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const numericFormData = {
+    const numericFormData: NumericDimensionsFormData = {
       width: Number(formData.width),
       height: Number(formData.height),
       depth: Number(formData.depth),
