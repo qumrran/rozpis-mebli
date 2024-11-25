@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/rozpis-mebli/static/css/main.cae6952f.css",
-    "main.js": "/rozpis-mebli/static/js/main.baaa32c2.js",
+    "main.css": "/rozpis-mebli/static/css/main.665694d3.css",
+    "main.js": "/rozpis-mebli/static/js/main.8c9108e3.js",
     "static/js/239.d5952378.chunk.js": "/rozpis-mebli/static/js/239.d5952378.chunk.js",
     "static/js/213.49b2d4b8.chunk.js": "/rozpis-mebli/static/js/213.49b2d4b8.chunk.js",
     "static/js/732.1e97b202.chunk.js": "/rozpis-mebli/static/js/732.1e97b202.chunk.js",
     "index.html": "/rozpis-mebli/index.html",
-    "main.cae6952f.css.map": "/rozpis-mebli/static/css/main.cae6952f.css.map",
-    "main.baaa32c2.js.map": "/rozpis-mebli/static/js/main.baaa32c2.js.map",
+    "main.665694d3.css.map": "/rozpis-mebli/static/css/main.665694d3.css.map",
+    "main.8c9108e3.js.map": "/rozpis-mebli/static/js/main.8c9108e3.js.map",
     "239.d5952378.chunk.js.map": "/rozpis-mebli/static/js/239.d5952378.chunk.js.map",
     "213.49b2d4b8.chunk.js.map": "/rozpis-mebli/static/js/213.49b2d4b8.chunk.js.map",
     "732.1e97b202.chunk.js.map": "/rozpis-mebli/static/js/732.1e97b202.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cae6952f.css",
-    "static/js/main.baaa32c2.js"
+    "static/css/main.665694d3.css",
+    "static/js/main.8c9108e3.js"
   ]
 }
