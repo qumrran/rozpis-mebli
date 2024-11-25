@@ -15,8 +15,10 @@ export function calculateFormats({
 }) {
 	const formats = [];
 
+	
 	const cabinetWidth = width - 2 * plateThickness;
 
+	
 	const calculateShelfWidth = () => {
 		return parseFloat(
 			(
@@ -26,6 +28,9 @@ export function calculateFormats({
 		);
 	};
 
+	const totalShelvesCount = shelvesCount * (partitionsCount + 1);
+
+	
 	formats.push({
 		type: 'Bok szafy',
 		width: depth,
@@ -33,6 +38,7 @@ export function calculateFormats({
 		count: 2,
 		plateThickness,
 	});
+
 
 	formats.push({
 		type: 'Wieniec dolny/górny',
@@ -42,16 +48,18 @@ export function calculateFormats({
 		plateThickness,
 	});
 
+	
 	if (shelvesCount > 0) {
 		formats.push({
 			type: 'Półka',
 			width: calculateShelfWidth(),
 			height: depth - 3,
-			count: shelvesCount,
+			count: totalShelvesCount, 
 			plateThickness,
 		});
 	}
 
+	
 	if (partitionsCount > 0) {
 		const partitionHeight = height - 2 * plateThickness;
 		formats.push({

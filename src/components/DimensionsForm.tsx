@@ -72,7 +72,7 @@ const DimensionsForm: React.FC = () => {
       </label>
 
       <label className="block mb-3">
-        <span className="text-sm font-light">Liczba półek:</span>
+        <span className="text-sm font-light">Liczba przegród poziomych (półek):</span>
         <input
           type="number"
           name="shelvesCount"
@@ -85,7 +85,7 @@ const DimensionsForm: React.FC = () => {
       </label>
 
       <label className="block mb-3">
-        <span className="text-sm font-light">Liczba przegród:</span>
+        <span className="text-sm font-light">Liczba przegród pionowych:</span>
         <input
           type="number"
           name="partitionsCount"
