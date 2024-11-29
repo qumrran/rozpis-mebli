@@ -1,6 +1,8 @@
 Wardrobe Cutter - Application for Woodworkers
 
 Wardrobe Cutter is a web application designed for woodworkers and hobbyists involved in designing custom furniture. It enables quick and easy calculation of cut pieces for wardrobe construction based on input dimensions and parameters.
+
+
 Features
 
     - Data Input Form
